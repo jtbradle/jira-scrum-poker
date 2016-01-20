@@ -17,8 +17,8 @@
     <web-resource key="scrum-poker-resources" name="Scrum Poker Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         <resource type="download" name="scrum-poker.css" location="/css/scrum-poker.css" />
+        <resource type="download" name="angular.js" location="/META-INF/resources/webjars/angularjs/1.4.8/angular.js" />
         <resource type="download" name="scrum-poker.js" location="/js/scrum-poker.js" />
-        <resource type="download" name="jquery.flip.min.js" location="/js/jquery.flip.min.js" />
         <resource type="download" name="images/" location="/images" />
         <context>scrum-poker</context>
     </web-resource>
@@ -39,6 +39,8 @@
         <interface>net.congstar.jira.plugins.scrumpoker.data.StoryPointFieldSupport</interface>
     </component>
 
+    <!-- hooks into the plugin -->
+
     <web-item key="pp_start" name="PP-Start" section="jira.issue.tools" weight="10">
         <label key="planningpoker.ppStart" />
         <link linkId="callPP">/secure/startPlanningPoker.jspa?issueKey=$issue.key</link>
@@ -50,6 +52,8 @@
         <link linkId="callPP">/secure/startPlanningPoker.jspa?issueKey=$issue.key</link>
         <condition class="net.congstar.jira.plugins.scrumpoker.StoryTypeCondition" />
     </web-item>
+
+    <!-- web views -->
 
     <webwork1 key="pp_startPP" name="Start PP Action" class="java.lang.Object">
         <actions>
@@ -100,5 +104,11 @@
             <action name="net.congstar.jira.plugins.scrumpoker.action.ResetDeckAction" alias="resetDeckAction" />
         </actions>
     </webwork1>
+    
+    <!-- rest endpoint -->
+
+    <rest key="helloWorldRest" path="/scrum-poker" version="1.0">
+        <description>REST endpoint for scrum poker.</description>
+    </rest>
 
 </atlassian-plugin>

@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.commons.lang3.math.NumberUtils;
 import org.joda.time.DateTime;
 
@@ -13,6 +16,7 @@ import org.joda.time.DateTime;
  * A {@link ScrumPokerSession} represents a Scrum poker session that is associated with exactly one issue. It holds all information required to run a poker session and support the
  * visual representation in the graphical user interface.
  */
+@XmlRootElement
 public class ScrumPokerSession {
 
     private Map<String, String> cards = new HashMap<String, String>();
@@ -40,6 +44,7 @@ public class ScrumPokerSession {
     /**
      * Returns the confirmed vote.
      */
+    @XmlElement
     public String getConfirmedVote() {
         return confirmedVote;
     }
@@ -47,6 +52,7 @@ public class ScrumPokerSession {
     /**
      * Returns the cards presented by users.
      */
+    @XmlElement
     public Map<String, String> getCards() {
         return cards;
     }
@@ -54,6 +60,7 @@ public class ScrumPokerSession {
     /**
      * Returns whether the cards are shown or hidden.
      */
+    @XmlElement
     public boolean isVisible() {
         return visible;
     }
@@ -87,6 +94,7 @@ public class ScrumPokerSession {
     /**
      * Returns the lowest vote.
      */
+    @XmlElement
     public String getMinimumVote() {
         double min = 1000.0;
         for (String voted : cards.values()) {
@@ -100,6 +108,7 @@ public class ScrumPokerSession {
     /**
      * Returns the highest vote.
      */
+    @XmlElement
     public String getMaximumVote() {
         double max = 0;
         for (String voted : cards.values()) {
@@ -113,6 +122,7 @@ public class ScrumPokerSession {
     /**
      * Returns all cards between the lowest and the highest vote.
      */
+    @XmlElement
     public List<String> getBoundedVotes() {
         List<String> result = new ArrayList<String>();
 

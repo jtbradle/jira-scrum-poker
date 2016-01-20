@@ -2,10 +2,11 @@
   <head>
     <title>${i18n.getText("pp.scrumPoker")}</title>
     <link rel="stylesheet" type="text/css" href="$req.contextPath/download/resources/net.congstar.jira.plugins.scrum-poker:scrum-poker-resources/scrum-poker.css" media="all" />
-    <script src="$req.contextPath/download/resources/net.congstar.jira.plugins.scrum-poker:scrum-poker-resources/scrum-poker.js"/>
+    <script src="$req.contextPath/download/resources/net.congstar.jira.plugins.scrum-poker:scrum-poker-resources/angular.js"></script>
+    <script src="$req.contextPath/download/resources/net.congstar.jira.plugins.scrum-poker:scrum-poker-resources/scrum-poker.js"></script>
   </head>
   <body>
-    <div class="issue-container " style="background-color: #fff">
+    <div class="issue-container" style="background-color: #fff">
       <div id="issue-content" class="issue-edit-form">
         <header id="stalker" class="issue-header js-stalker">
           <div class="issue-header-content">
